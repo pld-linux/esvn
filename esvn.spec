@@ -10,7 +10,7 @@ Source0:	http://esvn.umputun.com/%{name}-%{version}-1.tar.gz
 URL:		http://esvn.umputun.com/
 BuildRequires:	qmake
 BuildRequires:	qt-devel >= 3.0.0
-Requires:	qt >= 3.0.0
+BuildRequires:	sed >= 4.0
 Requires:	subversion
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,7 +26,9 @@ u¿ytkownika dla Subversion.
 %setup -q -n %{name}
 
 %build
-sed -i -e 's#-lqt #-lqt-mt #g' *.*
+%{__sed} -i 's,-lqt ,-lqt-mt ,g' *.vpj
+%{__sed} -i 's,Categories.*,Categories=Qt;Development;RevisionControl;,' eSvn.desktop
+
 export QTDIR=%{_prefix}
 %{__make}
 
