@@ -26,6 +26,7 @@ u¿ytkownika dla Subversion.
 %setup -q -n %{name}
 
 %build
+sed -i -e 's#-lqt #-lqt-mt #g' *.*
 export QTDIR=%{_prefix}
 %{__make}
 
