@@ -34,12 +34,9 @@ export QTDIR=%{_prefix}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
-install -d $RPM_BUILD_ROOT%{_pixmapsdir}
-install -d $RPM_BUILD_ROOT%{_desktopdir}
-install -d $RPM_BUILD_ROOT%{_docdir}/esvn
-install -m755 esvn $RPM_BUILD_ROOT%{_bindir}/esvn
-install -m755 esvn-diff-wrapper $RPM_BUILD_ROOT%{_bindir}/esvn-diff-wrapper
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_pixmapsdir},%{_desktopdir},%{_docdir}/esvn}
+install esvn $RPM_BUILD_ROOT%{_bindir}/esvn
+install esvn-diff-wrapper $RPM_BUILD_ROOT%{_bindir}/esvn-diff-wrapper
 install esvn.png $RPM_BUILD_ROOT%{_pixmapsdir}/esvn.png
 install eSvn.desktop $RPM_BUILD_ROOT%{_desktopdir}/eSvn.desktop
 cp -f -r html-docs $RPM_BUILD_ROOT%{_docdir}/esvn
