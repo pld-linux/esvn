@@ -1,0 +1,27 @@
+--- esvn/src/cmd_lineedit.h.orig	2004-09-13 20:55:37.000000000 +0200
++++ esvn/src/cmd_lineedit.h	2006-01-14 12:46:30.304606750 +0100
+@@ -14,6 +14,9 @@
+ *                                                                         *
+ ***************************************************************************/
+ 
++#ifndef CMD_LINE_EDIT_H
++#define CMD_LINE_EDIT_H
++
+ #include <vector>
+ 
+ #include <qlineedit.h>
+@@ -38,3 +41,4 @@
+ };
+ 
+ 
++#endif
+--- esvn/esvn.pro.orig	2005-04-12 23:28:18.000000000 +0200
++++ esvn/esvn.pro	2006-01-14 12:54:11.433425500 +0100
+@@ -267,6 +267,7 @@
+   UI_DIR = .ui
+   MOC_DIR = .moc
+   OBJECTS_DIR = .obj
++  INCPATH += src
+   DEFINES+= VERSION=\"$$VER\"
+ }
+ 
