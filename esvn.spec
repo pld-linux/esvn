@@ -10,7 +10,7 @@ Source0:	http://esvn.umputun.com/%{name}-%{version}-1.tar.gz
 Patch0:		%{name}-build.patch
 URL:		http://esvn.umputun.com/
 BuildRequires:	qmake
-BuildRequires:	qt-devel >= 3.0.0
+BuildRequires:	qt-devel >= 1:3.0.0
 BuildRequires:	sed >= 4.0
 Requires:	subversion
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
