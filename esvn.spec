@@ -1,14 +1,14 @@
 Summary:	eSvn - a cross-platform (Qt-based) GUI frontend for the Subversion revision system
 Summary(pl.UTF-8):	eSvn - wieloplatformowy (oparty na Qt) graficzny interfejs użytkownika do Subversion
 Name:		esvn
-Version:	0.6.11
+Version:	0.6.12
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
-Source0:	http://esvn.umputun.com/%{name}-%{version}-1.tar.gz
-# Source0-md5:	2ded6a349fc8692631f781bbb475fadc
+Source0:	http://dl.sourceforge.net/esvn/%{name}-%{version}-1.tar.gz
+# Source0-md5:	25a54a392b3798681b00dfe32807c9e3
 Patch0:		%{name}-build.patch
-URL:		http://esvn.umputun.com/
+URL:		http://zoneit.free.fr/esvn/
 BuildRequires:	qmake
 BuildRequires:	qt-devel >= 1:3.0.0
 BuildRequires:	sed >= 4.0
@@ -32,7 +32,8 @@ użytkownika dla Subversion.
 %{__sed} -i 's,Categories.*,Categories=Qt;Development;RevisionControl;,' eSvn.desktop
 
 export QTDIR=%{_prefix}
-%{__make}
+%{__make} \
+	CXX="%{__cxx}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
